@@ -7,7 +7,7 @@ const getTextColor=(backgroundColor:string):string=> colord(backgroundColor).isD
 
 export default function Colors() {
   return (
-    <div className='flex flex-wrap justify-center' dir="ltr">
+    <div className='flex flex-wrap justify-center ' dir="ltr" lang="en">
       {
         Object.entries(tailwindColors).map(([name,color])=>(
           <ColorBox key={name} name={name} color={color}/>
