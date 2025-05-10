@@ -55,16 +55,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html  dir="rtl" className={`${figtree.variable} ${yekanbakh.variable}`}>
-      <body>
-      <div className="flex flex-col min-h-screen">
+    <html  dir="rtl" className={`dark ${figtree.variable} ${yekanbakh.variable}`}>
+      <body className="flex flex-col min-h-screen dark:bg-base-100 dark:text-base-content">
     <header className="bg-gray-200 p-5">دوره معماری ری اکت</header>
     <div className="flex-1 flex">
         {children}
       </div>
 
     <footer className="bg-gray-200 p-5">footer</footer>
-    </div>
+
       </body>
     </html>
   );
