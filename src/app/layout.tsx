@@ -60,7 +60,7 @@ export default function RootLayout({
     <html  dir="rtl" className={`dark ${figtree.variable} ${yekanbakh.variable}`}>
       <body className="min-h-screen dark:bg-base-100 dark:text-base-content grid grid-rows-[80px_1fr_auto]">
         <Header />
-    <div className="flex-1 flex">
+    <div className="flex-1 flex justify-center items-center">
         {children}
       </div>
 

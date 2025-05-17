@@ -8,3 +8,6 @@ html {
 :lang(en) {
   font-family: var(--font-figtree);
 }
+.gradient{
+  @apply bg-gradient-to-r from-gradient-first to-gradient-second bg-clip-text text-transparent;
+}
