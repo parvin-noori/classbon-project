@@ -7,9 +7,10 @@ const meta:Meta<typeof Button>={
 }
 
 export default meta;
-type story=StoryObj<typeof Button>;
 
-export const BrandColors:story={
+type Story=StoryObj<typeof Button>;
+
+export const BrandColors:Story={
     render:()=>(
       <>
             <Button>Default</Button>

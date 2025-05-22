@@ -1,2 +1,2 @@
-export type Varitant=
-"neutral"|"primary"| "secondary"| "accent"| "info"| "success"| "warning"| "error"
+export type variant=
+"neutral"|"primary"| "secondary"| "accent"| "info"| "success"| "warning"| "error"|"ghost"

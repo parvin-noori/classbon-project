@@ -20,8 +20,8 @@ export default function Home() {
               هواتو داریم.
             </p>
             <div className="mt-5 flex gap-4">
-              <Button varitant="primary" size="large">دوره های ری اکت و نکست</Button>
-              <Button varitant="neutral" size="large">مشاوره برنامه نویسی</Button>
+              <Button variant="primary" size="large">دوره های ری اکت و نکست</Button>
+              <Button variant="neutral" size="large">مشاوره برنامه نویسی</Button>
             </div>
             <Image
               src="/images/frameworks.png"

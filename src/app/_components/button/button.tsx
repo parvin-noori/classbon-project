@@ -18,7 +18,7 @@ const shapeClasses:Record<ButtonShape,string>={
     square:"btn-square"
 }
 export const Button:React.FC<ButtonProps>=({
-    varitant,
+    variant,
     size="normal",
     isDisabled=false,
     isOutline=false,
@@ -40,7 +40,7 @@ export const Button:React.FC<ButtonProps>=({
         {'btn-link':isLink},
         {'animated-icon':animatedIcon},
         {'pointer-events-none opaicty-80':isLoading},
-        {[`btn-${varitant}`]:varitant},
+        {[`btn-${variant}`]:variant},
         {[`${sizeClasses[size]}`]:size},
         {[`${shapeClasses[shape]}`]:shape},
     );
