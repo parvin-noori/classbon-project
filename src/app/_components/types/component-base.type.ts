@@ -1,9 +1,9 @@
 import { Size } from "./size.type";
-import { variant } from "./variant.type";
+import { variant } from "./varitant.type";
 
 export type ComponentBase = {
     isDisabled?:boolean;
     className?:string;
-    variant?:variant
+    variant?:variant;
     size?:Size
 }
