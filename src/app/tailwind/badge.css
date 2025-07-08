@@ -1,0 +1,54 @@
+.badge {
+    @apply inline-flex gap-1 items-center justify-center transition duration-200 ease-in-out rounded-md font-semibold;
+    @apply  leading-5;
+    width: fit-content;
+    padding-left: 0.763rem;
+    padding-right: 0.763rem;
+
+    &[class*="-neutral"] {
+        @apply dark:border-base-content dark:bg-base-content dark:text-base-content;
+    }
+    &[class*="-primary"] {
+        @apply dark:border-primary/30 dark:bg-primary/30 dark:text-primary;
+    }
+    &[class*="-secondary"] {
+        @apply dark:border-secondary/30 dark:bg-secondary/30 dark:text-secondary;
+    }
+    &[class*="-accent"] {
+        @apply dark:border-accent/30 dark:bg-accent/30 dark:text-accent;
+    }
+    &[class*="-info"] {
+        @apply dark:border-transparent dark:bg-info/30 dark:text-info;
+    }
+    &[class*="-success"] {
+        @apply dark:border-transparent dark:bg-success/30 dark:text-success;
+    }
+    &[class*="-warning"] {
+        @apply dark:border-transparent dark:bg-warning/30 dark:text-warning;
+    }
+    &[class*="-error"] {
+        @apply dark:border-transparent dark:bg-error/30 dark:text-error;
+    }
+    &[class*="-ghost"] {
+        @apply dark:border-white dark:bg-white/30 dark:text-base-300;
+    }
+
+    &[class*="-xs"] {
+        @apply h-5 text-xs font-bold
+    }
+
+    &[class*="-sm"] {
+        @apply h-6 text-sm
+    }
+
+    &[class*="-md"]{
+      @apply h-7 text-base
+    }
+
+    &[class*="-lg"] {
+        @apply h-8 text-lg
+    }
+
+
+
+}
