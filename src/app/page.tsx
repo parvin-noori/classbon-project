@@ -3,6 +3,7 @@ import Colors from "./_components/colors/colors";
 import { Button } from "./_components/button";
 import { HomeHeroSection } from "./_components/home-hero-section/home-hero-section";
 import { CoursesSummary } from "./types/course-summary.interface";
+import { CourseCardList } from "./(courses)/_components/course-card-list";
 
  async function getNewestCourses(count:number):Promise<CoursesSummary[]>{
  const res=await fetch (`https://api.classbon.com/api/courses/newest/${count}`)
@@ -14,9 +15,15 @@ export default async function Home() {
   return (
     <>
    <HomeHeroSection/>
-   {newestCourses.map(course=>(
-    <p key={course.id}>{course.title}</p>
-   ))}
+   <section className="container pt-20">
+    <div className="text-center xl:text-start">
+      <h2 className="text-2xl font-extrabold">
+        تازه ترین دوره های آموزشی
+      </h2>
+      <p>برای به روز ماندن، یاد گرفتن نکته های تازه ضروریه!</p>
+    </div>
+    <CourseCardList courses={newestCourses}/>
+   </section>
     </>
   );
 }
