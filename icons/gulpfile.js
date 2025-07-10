@@ -66,7 +66,7 @@ gulp.task("icons_components", function () {
 
 gulp.task("icons_component_main", function (cb) {
     return fs.writeFile(
-        dest_folder + "/icons.ts",
+        dest_folder + "/index.ts",
         "/* GENERATED FILE */\n\n" +
             icons_component_list
                 .map((item) => {

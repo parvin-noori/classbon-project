@@ -1,4 +1,5 @@
 import { Badge } from "@/app/_components/badge";
+import { IconArrowLeftFill, IconClock } from "@/app/_components/icons";
 import { CoursesSummary } from "@/app/types/course-summary.interface";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,6 +31,7 @@ export const CourseCard:React.FC<CourseCardProps>=({
         <p>{subTitle}</p>
         <div className="">
             <Badge variant="warning">
+                <IconClock width={16} height={16}/>
             {duration}
 
             </Badge>
@@ -37,10 +39,11 @@ export const CourseCard:React.FC<CourseCardProps>=({
             {basePrice}
         </div>
     </div>
-    <Link href={`/course/${slug}`}>
-    <div className="card-footer justify-center">
-        مشاهده جزیپیات دوره
-        </div></Link>
+    <Link href={`/course/${slug}`} className="animated-icon card-footer justify-center">
+
+        مشاهده جزئیات دوره
+        <IconArrowLeftFill fill="currentColor"/>
+        </Link>
 </div>
     )
 }

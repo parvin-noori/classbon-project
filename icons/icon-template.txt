@@ -1,5 +1,7 @@
-import { SvgIcon } from "@/app/_components/icons/src/icons.types";
-import BaseIcon from "@/app/_components/icons/src/base-icon";
+import BaseIcon from "@/app/_components/icons/base-icon";
+import { SvgIcon } from "@/app/_components/icons/icons.types";
+
+
 
 export default function SvgIcon(props:SvgIcon){
     return(
