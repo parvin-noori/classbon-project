@@ -10,7 +10,7 @@ import { IconArrowLeftFill } from "./_components/icons";
 import { BlogPostSummary } from "../types/blog-post-summary.interface";
 import { API_URL } from "@/configs/globals";
 import { Suspense } from "react";
-import { CardPlaceholder } from "./_components/placeholders/card/card-placeholder";
+import { CardPlaceholder } from "./_components/placeholders";
 
 
  async function getNewestPosts(count:number):Promise<BlogPostSummary[]>{
