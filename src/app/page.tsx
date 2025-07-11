@@ -9,11 +9,8 @@ import { Feature } from "./_components/feature/feature";
 import { IconArrowLeftFill } from "./_components/icons";
 import { BlogPostSummary } from "../types/blog-post-summary.interface";
 import { API_URL } from "@/configs/globals";
+import { Suspense } from "react";
 
- async function getNewestCourses(count:number):Promise<CoursesSummary[]>{
- const res=await fetch (`${API_URL}/courses/newest/${count}`)
- return res.json()
-}
 
  async function getNewestPosts(count:number):Promise<BlogPostSummary[]>{
  const res=await fetch (`${API_URL}/blog/newest/${count}`)
@@ -21,10 +18,9 @@ import { API_URL } from "@/configs/globals";
 }
 
 export default async function Home() {
-  const newestCoursesData= getNewestCourses(4)
-  const newestPostsData= getNewestCourses(4)
+  const newestPostsData= getNewestPosts(4)
 
-  const [newestCourses,newestPosts]=await Promise.all([newestCoursesData,newestPostsData])
+  const [newestPosts]=await Promise.all([newestPostsData])
 
   console.log(newestPosts)
 
@@ -46,7 +42,10 @@ export default async function Home() {
       </h2>
       <p>برای به روز ماندن، یاد گرفتن نکته های تازه ضروریه!</p>
     </div>
-    <CourseCardList courses={newestCourses}/>
+    <Suspense fallback={<div>loading...</div>}>
+
+    <CourseCardList courses={[]}/>
+    </Suspense>
    </section>
    <section className="px-2 my-40">
                 {/* <div className="sticky top-0 pt-0 text-center"> */}
