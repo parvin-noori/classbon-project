@@ -1,7 +1,7 @@
 import { Badge } from "@/app/_components/badge";
 import { IconArrowLeftFill, IconClock } from "@/app/_components/icons";
 import { Price } from "@/app/_components/price/price";
-import { CoursesSummary } from "@/app/types/course-summary.interface";
+import { CoursesSummary } from "@/types/course-summary.interface";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

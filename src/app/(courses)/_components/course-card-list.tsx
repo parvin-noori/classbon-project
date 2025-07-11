@@ -1,4 +1,4 @@
-import { CoursesSummary } from "@/app/types/course-summary.interface"
+import { CoursesSummary } from "@/types/course-summary.interface"
 import React from "react"
 import { CourseCard } from "./course-card"
 

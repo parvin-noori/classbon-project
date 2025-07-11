@@ -2,20 +2,21 @@ import Image from "next/image";
 import Colors from "./_components/colors/colors";
 import { Button } from "./_components/button";
 import { HomeHeroSection } from "./_components/home-hero-section/home-hero-section";
-import { CoursesSummary } from "./types/course-summary.interface";
+import { CoursesSummary } from "../types/course-summary.interface";
 import { CourseCardList } from "./(courses)/_components/course-card-list";
 import { homeFeatures } from "@/data/home-features";
 import { Feature } from "./_components/feature/feature";
 import { IconArrowLeftFill } from "./_components/icons";
-import { BlogPostSummary } from "./types/blog-post-summary.interface";
+import { BlogPostSummary } from "../types/blog-post-summary.interface";
+import { API_URL } from "@/configs/globals";
 
  async function getNewestCourses(count:number):Promise<CoursesSummary[]>{
- const res=await fetch (`https://api.classbon.com/api/courses/newest/${count}`)
+ const res=await fetch (`${API_URL}/courses/newest/${count}`)
  return res.json()
 }
 
  async function getNewestPosts(count:number):Promise<BlogPostSummary[]>{
- const res=await fetch (`https://api.classbon.com/api/blog/newest/${count}`)
+ const res=await fetch (`${API_URL}/blog/newest/${count}`)
  return res.json()
 }
 
