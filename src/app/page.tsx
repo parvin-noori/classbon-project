@@ -10,6 +10,7 @@ import { IconArrowLeftFill } from "./_components/icons";
 import { BlogPostSummary } from "../types/blog-post-summary.interface";
 import { API_URL } from "@/configs/globals";
 import { Suspense } from "react";
+import { CardPlaceholder } from "./_components/placeholders/card/card-placeholder";
 
 
  async function getNewestPosts(count:number):Promise<BlogPostSummary[]>{
@@ -42,7 +43,7 @@ export default async function Home() {
       </h2>
       <p>برای به روز ماندن، یاد گرفتن نکته های تازه ضروریه!</p>
     </div>
-    <Suspense fallback={<div>loading...</div>}>
+    <Suspense fallback={<CardPlaceholder count={4} className="mt-4"/>}>
 
     <CourseCardList courses={[]}/>
     </Suspense>
