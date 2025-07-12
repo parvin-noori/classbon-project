@@ -9,21 +9,32 @@ import { Feature } from "./_components/feature/feature";
 import { IconArrowLeftFill } from "./_components/icons";
 import { BlogPostSummary } from "../types/blog-post-summary.interface";
 import { API_URL } from "@/configs/globals";
-import { Suspense } from "react";
-import { CardPlaceholder } from "./_components/placeholders";
+// import { Suspense } from "react";
+// import { CardPlaceholder } from "./_components/placeholders";
 import { TestimonialList } from "./_components/testimonial/testimonial-list";
 import { testimonials } from "@/data/testimonials";
 
-
- async function getNewestPosts(count:number):Promise<BlogPostSummary[]>{
- const res=await fetch (`${API_URL}/blog/newest/${count}`)
+ async function getNewestCourses(count:number):Promise<CoursesSummary[]>{
+ const res=await fetch (`${API_URL}/courses/newest/${count}`,{
+  cache:'no-store'
+ })
  return res.json()
 }
 
-export default async function Home() {
-  const newestPostsData= getNewestPosts(4)
 
-  const [newestPosts]=await Promise.all([newestPostsData])
+
+//  async function getNewestPosts(count:number):Promise<BlogPostSummary[]>{
+//  const res=await fetch (`${API_URL}/blog/newest/${count}`)
+//  return res.json()
+// }
+
+export default async function Home() {
+  // const newestPostsData= getNewestPosts(4);
+  const newestCoursesData= getNewestCourses(4);
+
+  const [ newestCourses] = await Promise.all([
+    newestCoursesData,
+  ]);
 
   // console.log(newestPosts)
 
@@ -45,10 +56,10 @@ export default async function Home() {
       </h2>
       <p>برای به روز ماندن، یاد گرفتن نکته های تازه ضروریه!</p>
     </div>
-    <Suspense fallback={<CardPlaceholder count={4} className="mt-4"/>}>
+    {/* <Suspense fallback={<CardPlaceholder count={4} className="mt-4"/>}> */}
 
-    <CourseCardList courses={[]}/>
-    </Suspense>
+    <CourseCardList courses={newestCourses}/>
+    {/* </Suspense> */}
    </section>
    <section className="px-2 my-40">
                 {/* <div className="sticky top-0 pt-0 text-center"> */}
