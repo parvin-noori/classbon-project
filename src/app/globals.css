@@ -1,26 +1,30 @@
 @import "tailwindcss";
-@import '../tailwind/components.css';
+@import "../tailwind/components.css";
 @config "../../tailwind.config.ts";
 
-
-html {
-  font-family: var(--font-yekanbakh);
+@layer base {
+  :root{
+    /* --color-primary:theme("colors.primary") */
+  }
+  html {
+    font-family: var(--font-yekanbakh);
+  }
+  :lang(en) {
+    font-family: var(--font-figtree);
+  }
 }
-:lang(en) {
-  font-family: var(--font-figtree);
-}
-.gradient{
+.gradient {
   @apply bg-gradient-to-r from-gradient-first to-gradient-second bg-clip-text text-transparent;
 }
 
 .animated-icon {
   & > * {
-      @apply transition-all;
+    @apply transition-all;
   }
   &:hover {
-      @apply text-white;
-      & > * {
-          @apply -translate-x-2;
-      }
+    @apply text-white;
+    & > * {
+      @apply -translate-x-2;
+    }
   }
 }
