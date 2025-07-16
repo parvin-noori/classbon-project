@@ -1,9 +1,9 @@
 import { Rating } from "@/app/_components/rating"
 import { API_URL } from "@/configs/globals"
-import { CourseDetails } from "@/types/course-details.interface"
-import { CourseAside } from "./_components/course-aside/course-aside"
+import { CourseDetails as CourseDetail} from "@/types/course-details.interface"
+import { CourseAside } from "./_components/course-aside"
 import { Tab } from "@/types/tabs.types"
-import { Tabs } from "@/app/_components/tabs/tabs"
+import { Tabs } from "@/app/_components/tabs"
 
 
 export async function generateStaticParams(){
@@ -12,7 +12,7 @@ export async function generateStaticParams(){
     return(slug as string[]).map((slug)=>({slug:slug}))
 }
 
-async function getCourse(slug:string):Promise<CourseDetails>{
+async function getCourse(slug:string):Promise<CourseDetail>{
 
     const res=await fetch(`${API_URL}/courses/${slug}`)
     return res.json()
@@ -53,7 +53,7 @@ export default async function CourseDetails({params}:{params:{slug:string}}){
             <div className="col-span-10 xl:col-span-3">
                <CourseAside {...course}/>
             </div>
-            <div className="col-span-10 xl:col-span-6 bg-info">
+            <div className="col-span-10 xl:col-span-6">
                 <Tabs tabs={tabs}/>
             </div>
             <div className="col-span-10 xl:col-span-4 bg-warning"></div>
