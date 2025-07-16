@@ -50,7 +50,7 @@ export default async function CourseDetails({params}:{params:{slug:string}}){
 
                 <div className=" mt-5">Video Player Component</div>
             </div>
-            <div className="col-span-10 xl:col-span-3 bg-secondary">
+            <div className="col-span-10 xl:col-span-3">
                <CourseAside {...course}/>
             </div>
             <div className="col-span-10 xl:col-span-6 bg-info">

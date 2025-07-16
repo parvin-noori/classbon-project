@@ -1,7 +1,7 @@
-@import "./buttons.css";
-@import "./card.css";
-@import "./badge.css";
-@import "./loading.css";
-/* @import "./progress.css"; */
-@import "./avatar.css";
-@import "./tabs.css";
+@import "./components/buttons.css";
+@import "./components/card.css";
+@import "./components/badge.css";
+@import "./components/loading.css";
+@import "./components/progress.css";
+@import "./components/avatar.css";
+@import "./components/tabs.css";
