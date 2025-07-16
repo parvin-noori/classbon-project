@@ -4,6 +4,8 @@ import { CourseDetails as CourseDetail} from "@/types/course-details.interface"
 import { CourseAside } from "./_components/course-aside"
 import { Tab } from "@/types/tabs.types"
 import { Tabs } from "@/app/_components/tabs"
+import { Accordion } from "@/app/_components/accordion"
+import { Accordion as accType} from "@/types/Accordion.types"
 
 
 export async function generateStaticParams(){
@@ -23,6 +25,14 @@ export default async function CourseDetails({params}:{params:{slug:string}}){
     const {slug}=params
     const course = await getCourse(slug);
 
+    const faqs:accType[]=course.frequentlyAskedQuestions.map((faq)=>(
+        {
+            id:faq.id,
+            title:faq.question,
+            content:faq.answer
+        }
+    ))
+
     const tabs:Tab[]=[
         {
             label:"مشخصات دوره",
@@ -34,7 +44,7 @@ export default async function CourseDetails({params}:{params:{slug:string}}){
         },
         {
             label:"سوالات متداول",
-            content:"accordion component"
+            content:<Accordion data={faqs}/>
         },
     ]
     return(
