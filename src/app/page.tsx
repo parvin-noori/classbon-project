@@ -23,16 +23,17 @@ import { testimonials } from "@/data/testimonials";
 
 
 
-//  async function getNewestPosts(count:number):Promise<BlogPostSummary[]>{
-//  const res=await fetch (`${API_URL}/blog/newest/${count}`)
-//  return res.json()
-// }
+ async function getNewestPosts(count:number):Promise<BlogPostSummary[]>{
+ const res=await fetch (`${API_URL}/blog/newest/${count}`)
+ return res.json()
+}
 
 export default async function Home() {
-  // const newestPostsData= getNewestPosts(4);
+  const newestPostsData= getNewestPosts(4);
   const newestCoursesData= getNewestCourses(4);
 
-  const [ newestCourses] = await Promise.all([
+  const [newestBlogPosts, newestCourses] = await Promise.all([
+    newestPostsData,
     newestCoursesData,
   ]);
 
