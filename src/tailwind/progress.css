@@ -2,7 +2,7 @@
   @apply relative w-full appearance-none overflow-hidden h-2 rounded-lg dark:bg-base-25
 
     &::moz-progress-bar {
-    @apply dark:bg-base-content;
+    @apply dark:bg-base-25;
   }
 
   &[class*="-primary"]::-moz-progress-bar {
