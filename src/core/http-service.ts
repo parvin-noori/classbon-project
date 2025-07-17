@@ -1,6 +1,6 @@
 import { API_URL } from "@/configs/globals";
 import { BadRequestError, networkError, notFoundError, unauthorizedError, unhandleException, validationError } from "@/types/http-errors.interface";
-import axios from "axios";
+import axios, { AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse } from "axios";
 
 type ApiError=BadRequestError |unauthorizedError|validationError|notFoundError|unhandleException|networkError
 
@@ -63,3 +63,49 @@ httpService.interceptors.response.use(
         }
     }
 )
+
+async function apiBase<T>(url:string,options?:AxiosRequestConfig):Promise<T>{
+    const response:AxiosResponse=await httpService(url,options)
+
+    return response.data as T
+}
+
+
+async function readData<T>(url:string,headers?:AxiosRequestHeaders):Promise<T>{
+    const options:AxiosRequestConfig={
+        headers:headers,
+        method:"GET"
+    }
+
+    return await apiBase(url,options)
+}
+
+async function createData<Tmodel,Tresult>(url:string,data:Tmodel,headers?:AxiosRequestHeaders):Promise<Tresult>{
+    const options:AxiosRequestConfig={
+        headers:headers,
+        method:"POST",
+        data:JSON.stringify(data),
+    }
+
+    return await apiBase<Tresult>(url,options)
+}
+
+async function updateData<Tmodel,Tresult>(url:string,data:Tmodel,headers?:AxiosRequestHeaders):Promise<Tresult> {
+ const options:AxiosRequestConfig={
+    headers:headers,
+    method:"PUT",
+    data:JSON.stringify(data),
+ }   
+
+ return await apiBase<Tresult>(url,options)
+}
+
+
+async function deleteData(url:string,headers?:AxiosRequestHeaders):Promise<void>{
+    const options:AxiosRequestConfig={
+        headers:headers,
+        method:"DELETE"
+    }
+
+    return await apiBase(url,options)
+}
