@@ -6,6 +6,7 @@ import { Tab } from "@/types/tabs.types"
 import { Tabs } from "@/app/_components/tabs"
 import { Accordion } from "@/app/_components/accordion"
 import { Accordion as accType} from "@/types/Accordion.types"
+import CourseComments from "./_components/comments/course-comments"
 
 
 export async function generateStaticParams(){
@@ -40,7 +41,7 @@ export default async function CourseDetails({params}:{params:{slug:string}}){
         },
         {
             label:"دیدگاه ها و پرسش ها",
-            content:"course comments"
+            content:<CourseComments/>
         },
         {
             label:"سوالات متداول",
