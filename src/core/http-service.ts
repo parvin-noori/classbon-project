@@ -109,3 +109,6 @@ async function deleteData(url:string,headers?:AxiosRequestHeaders):Promise<void>
 
     return await apiBase(url,options)
 }
+
+
+export {createData, readData, updateData, deleteData};
