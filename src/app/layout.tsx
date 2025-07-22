@@ -3,6 +3,7 @@ import {Figtree} from "next/font/google";
 import localFont from "next/font/local";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
+import QueryProvider from "@/providers/react-query-provider";
 
 const figtree = Figtree({
   display: "swap",
@@ -59,12 +60,15 @@ export default function RootLayout({
   return (
     <html  dir="rtl" className={`dark ${figtree.variable} ${yekanbakh.variable}`}>
       <body className="min-h-screen dark:bg-base-100 dark:text-base-content grid grid-rows-[80px_1fr_auto]">
+        <QueryProvider>
+
         <Header />
     <main >
         {children}
       </main>
 
     <Footer/>
+        </QueryProvider>
 
       </body>
     </html>

@@ -13,6 +13,8 @@
     "gulp": "gulp"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.83.0",
+    "@tanstack/react-query-devtools": "^5.83.0",
     "axios": "^1.10.0",
     "classnames": "^2.5.1",
     "colord": "^2.9.3",
