@@ -16,7 +16,6 @@ httpService.interceptors.response.use(
         return response
     },
     (error)=>{
-        debugger;
          if(error?.response){
             const statusCode=error?.response.status
 
@@ -34,7 +33,6 @@ httpService.interceptors.response.use(
 )
 
 async function apiBase<T>(url:string,options?:AxiosRequestConfig):Promise<T>{
-    debugger;
     const response:AxiosResponse=await httpService(url,options)
 
     return response.data as T
@@ -42,7 +40,6 @@ async function apiBase<T>(url:string,options?:AxiosRequestConfig):Promise<T>{
 
 
 async function readData<T>(url:string,headers?:AxiosRequestHeaders):Promise<T>{
-    debugger;
     const options:AxiosRequestConfig={
         headers:headers,
         method:"GET"
