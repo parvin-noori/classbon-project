@@ -6,6 +6,8 @@ import { Comment } from "@/app/_components/comment"
 import { TextPlaceholder } from "@/app/_components/placeholders"
 import { Fragment, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
+import { Button } from "@/app/_components/button"
+import { IconRefresh } from "@/app/_components/icons"
 
 
 const CourseComments=()=>{
@@ -13,7 +15,7 @@ const CourseComments=()=>{
 const {ref,inView}=useInView({})
 const {slug}=useParams()
 
-const {data:comments,error,hasNextPage,fetchNextPage,isFetchingNextPage,refetch}=useCourseComments({
+const {data:comments,error,hasNextPage,fetchNextPage,isFetching,isFetchingNextPage,refetch}=useCourseComments({
     params:{
         slug:slug as string,
         page:1
@@ -26,6 +28,22 @@ useEffect(()=>{
         fetchNextPage()
     }
 },[inView,hasNextPage,fetchNextPage])
+
+
+if(error){
+    return(
+        <>
+        <p>خطا در برقراری ارتباط با سرور</p>
+        <div className="text-cent mt-3">
+            <Button variant="neutral" 
+            className="font-semibold"
+             isOutline={true}
+              shape="wide"
+               onClick={()=>refetch()}><IconRefresh/>تلاش مجدد</Button>
+        </div>
+        </>
+    )
+}
     return(
         <>
         {comments?.pages.map((currentPage)=>(
@@ -39,7 +57,7 @@ useEffect(()=>{
 
        
 
-        {hasNextPage || isFetchingNextPage && (
+        {hasNextPage || isFetching && (
  <div ref={ref}>
  <TextPlaceholder/>
 </div>
