@@ -32,10 +32,10 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({ data }) => {
                             </span>
                             <span className="ml-auto">{chapter.title}</span>
                             <div className="flex gap-2 ml-3">
-                                <Badge variant="info">
+                                <Badge variant="info" className="text-nowrap">
                                     {chapter.numOfLectures} مبحث{" "}
                                 </Badge>
-                                <Badge variant="accent">
+                                <Badge variant="accent" className="text-nowrap">
                                     {chapter.duration}{" "}
                                 </Badge>
                             </div>
