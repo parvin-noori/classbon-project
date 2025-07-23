@@ -8,6 +8,7 @@ import { Fragment, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import { Button } from "@/app/_components/button"
 import { IconRefresh } from "@/app/_components/icons"
+import { Alert } from "@/app/_components/alert"
 
 
 const CourseComments=()=>{
@@ -33,7 +34,7 @@ useEffect(()=>{
 if(error){
     return(
         <>
-        <p>خطا در برقراری ارتباط با سرور</p>
+        <Alert variant="error">خطا در برقراری ارتباط با سرور</Alert>
         <div className="text-cent mt-3">
             <Button variant="neutral" 
             className="font-semibold"
