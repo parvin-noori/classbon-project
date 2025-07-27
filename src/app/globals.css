@@ -4,7 +4,7 @@
 
 @layer base {
   :root{
-    /* --color-primary:theme("colors.primary") */
+    --color-primary:blue;
   }
   html {
     font-family: var(--font-yekanbakh);
