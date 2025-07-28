@@ -1,7 +1,10 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default async function Verify() {
   return (
-    <div>verify page</div>
+    <div>
+      <Link href="/signin">go to sign in page</Link>
+    </div>
   )
 }
