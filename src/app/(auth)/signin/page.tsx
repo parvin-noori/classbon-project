@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
+import { SigninForm } from './components/signin-form'
 
 export default async function SignIn() {
   return (
     <div>
-      <Link href="/verify">go to verify page</Link>
+      <SigninForm/>
     </div>
   )
 }

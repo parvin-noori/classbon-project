@@ -1,0 +1,72 @@
+.textbox {
+    @apply h-12 px-4 text-sm leading-loose flex-shrink dark:placeholder-base-content/50;
+    @apply border dark:border-base-25 bg-transparent rounded-lg text-base;
+    &:focus {
+        @apply outline outline-2 outline-offset-2 ;
+    }
+    &[class*="-ghost"] {
+        &:focus {
+            @apply  dark:outline-primary dark:border-primary;
+            box-shadow: none;
+        }
+    }
+    &[class*="-primary"] {
+        @apply dark:border-primary;
+        &:focus {
+            @apply dark:outline-primary;
+        }
+    }
+    &[class*="-secondary"] {
+        @apply dark:border-secondary;
+        &:focus {
+            @apply dark:outline-secondary;
+        }
+    }
+    &[class*="-accent"] {
+        @apply dark:border-accent;
+        &:focus {
+            @apply dark:outline-accent;
+        }
+    }
+    &[class*="-info"] {
+        @apply dark:border-info;
+        &:focus {
+            @apply dark:outline-info;
+        }
+    }
+    &[class*="-success"] {
+        @apply dark:border-success;
+        &:focus {
+            @apply dark:outline-success;
+        }
+    }
+    &[class*="-warning"] {
+        @apply dark:border-warning;
+        &:focus {
+            @apply dark:outline-warning;
+        }
+    }
+    &[class*="-error"] {
+        @apply dark:border-error;
+        &:focus {
+            @apply dark:outline-error;
+        }
+    }
+    &[class*="-xs"] {
+        @apply h-6 px-2 text-xs leading-relaxed;
+    }
+    &[class*="-md"] {
+        @apply h-12 px-4 text-sm leading-loose ;
+    }
+    &[class*="-lg"] {
+        @apply h-16 px-6 text-lg leading-loose;
+    }
+    &[class*="-sm"] {
+        @apply h-8 px-3 text-sm leading-8;
+    }
+    &[class*="-disabled]"],
+    &:disabled,
+    &[disabled] {
+        @apply cursor-not-allowed dark:border-base-200 dark:bg-base-200 dark:placeholder-base-content/20;
+    }
+}
