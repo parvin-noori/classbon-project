@@ -19,7 +19,7 @@ import { TextBox } from "../../textbox";
   {...rest}
   />
   {hasError && (
-    <p className="mt-2 text-sm text-error">{error.message}</p>
+    <p className="mt-1 text-sm text-error">{error.message}</p>
   )}
   </>;
 };

@@ -24,22 +24,22 @@ export const SigninForm = () => {
         className="flex flex-col gap-6 mt-16"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <TextInput
-          register={register}
-          name={"mobile"}
-          rules={{
-            required: "شماره موبایل الزامی است",
-            maxLength: {
-              value: 11,
-              message: "شماره موبایل باید ۱۱ رقم باشد",
-            },
-            minLength: {
-              value: 11,
-              message: "شماره موبایل باید ۱۱ رقم باشد ",
-            },
-          }}
-          errors={errors}
-        />
+       <TextInput<Signin>
+                  register={register}
+                  name={"mobile"}
+                  rules={{
+                    required: 'شماره موبایل الزامی است',
+                    maxLength: {
+                        value: 11,
+                        message: 'شماره موبایل باید 11 رقم باشد'
+                      },
+                      minLength: {
+                        value: 11,
+                        message: 'شماره موبایل باید 11 رقم باشد'
+                      }
+                  }}
+                  errors={errors}
+                />
         {/* <TextBox {...register('mobile',{required:"شماره موبایل الزامی است"})} placeholder="شماره موبایل"/> */}
         <Button type="submit" variant="primary">
           تایید و دریافت کد
