@@ -5,16 +5,27 @@ import { TextBox } from "@/app/_components/textbox";
 import { useForm } from "react-hook-form";
 import { Signin } from "../types/signin.types";
 import { TextInput } from "@/app/_components/text-form";
+import { usesignin } from "../_api/signin";
+import { useRouter } from "next/navigation";
 
 export const SigninForm = () => {
   const {
     handleSubmit,
     register,
+    getValues,
     formState: { errors },
   } = useForm<Signin>();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const router = useRouter();
+
+  const signIn = usesignin({
+    onSuccess: () => {
+      router.push(`/verify?mobile=${getValues("mobile")}`);
+    },
+  });
+
+  const onSubmit = (data: Signin) => {
+    signIn.submit(data);
   };
   return (
     <>
@@ -24,24 +35,24 @@ export const SigninForm = () => {
         className="flex flex-col gap-6 mt-16"
         onSubmit={handleSubmit(onSubmit)}
       >
-       <TextInput<Signin>
-                  register={register}
-                  name={"mobile"}
-                  rules={{
-                    required: 'شماره موبایل الزامی است',
-                    maxLength: {
-                        value: 11,
-                        message: 'شماره موبایل باید 11 رقم باشد'
-                      },
-                      minLength: {
-                        value: 11,
-                        message: 'شماره موبایل باید 11 رقم باشد'
-                      }
-                  }}
-                  errors={errors}
-                />
+        <TextInput<Signin>
+          register={register}
+          name={"mobile"}
+          rules={{
+            required: "شماره موبایل الزامی است",
+            maxLength: {
+              value: 11,
+              message: "شماره موبایل باید 11 رقم باشد",
+            },
+            minLength: {
+              value: 11,
+              message: "شماره موبایل باید 11 رقم باشد",
+            },
+          }}
+          errors={errors}
+        />
         {/* <TextBox {...register('mobile',{required:"شماره موبایل الزامی است"})} placeholder="شماره موبایل"/> */}
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="primary" isLoading={signIn.isPending}>
           تایید و دریافت کد
         </Button>
       </form>
