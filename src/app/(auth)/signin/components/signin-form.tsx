@@ -7,6 +7,8 @@ import { Signin } from "../types/signin.types";
 import { TextInput } from "@/app/_components/text-form";
 import { usesignin } from "../_api/signin";
 import { useRouter } from "next/navigation";
+import { useNotificationStore } from "@/store/notification.store";
+import { useEffect } from "react";
 
 export const SigninForm = () => {
   const {
@@ -23,6 +25,14 @@ export const SigninForm = () => {
       router.push(`/verify?mobile=${getValues("mobile")}`);
     },
   });
+
+  const showNotification = useNotificationStore(
+    (state) => state.showNotification
+  );
+
+  useEffect(() => {
+    showNotification({ type: "error", message: "error" });
+  }, []);
 
   const onSubmit = (data: Signin) => {
     signIn.submit(data);
