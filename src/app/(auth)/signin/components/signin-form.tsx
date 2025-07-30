@@ -31,7 +31,7 @@ export const SigninForm = () => {
   );
 
   useEffect(() => {
-    showNotification({ type: "error", message: "error" });
+    showNotification({ type: "success", message: "عملیات با موفقیت انجام شد" });
   }, []);
 
   const onSubmit = (data: Signin) => {
