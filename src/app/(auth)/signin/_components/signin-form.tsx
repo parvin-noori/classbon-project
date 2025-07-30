@@ -3,7 +3,7 @@
 import { Button } from "@/app/_components/button";
 import { TextBox } from "@/app/_components/textbox";
 import { useForm } from "react-hook-form";
-import { Signin } from "../types/signin.types";
+import { Signin } from "../_types/signin.types";
 import { TextInput } from "@/app/_components/text-form";
 import { usesignin } from "../_api/signin";
 import { useRouter } from "next/navigation";
@@ -28,14 +28,11 @@ export const SigninForm = () => {
     onSuccess: () => {
       router.push(`/verify?mobile=${getValues("mobile")}`);
       showNotification({
-        message:"کد تایید به شماره شمار ارسال شد",
-        type:"info"
-      })
+        message: "کد تایید به شماره شمار ارسال شد",
+        type: "info",
+      });
     },
   });
-
- 
-
 
   const onSubmit = (data: Signin) => {
     signIn.submit(data);

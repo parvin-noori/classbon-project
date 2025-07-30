@@ -28,6 +28,7 @@ export const NotificationToast: React.FC<NotificationToastProps> = ({
     (state) => state.dismissNotification
   );
   const [progessValue, setProgressValue] = useState<number>(100);
+
   useEffect(() => {
     const interval = duration / 100;
     const intervalId = setInterval(() => {
@@ -37,6 +38,7 @@ export const NotificationToast: React.FC<NotificationToastProps> = ({
     }, interval);
     return () => clearInterval(intervalId);
   }, [duration]);
+  
   return (
     <div className="notification">
       <div className={`notification-icon ${notificationTypes[type]}`}>

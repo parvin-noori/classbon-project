@@ -1,5 +1,5 @@
 import { createData } from "@/core/http-service/http-service";
-import { Signin } from "../types/signin.types";
+import { Signin } from "../_types/signin.types";
 import { useMutation } from "@tanstack/react-query";
 
 const signIn = (model: Signin): Promise<void> =>
@@ -10,10 +10,10 @@ type UseSigninOptions = {
 };
 
 export const usesignin = ({ onSuccess }: UseSigninOptions) => {
-  const { mutate:submit,isPending } = useMutation({
+  const { mutate: submit, isPending } = useMutation({
     mutationFn: signIn,
     onSuccess: onSuccess,
   });
 
-  return{submit,isPending};
+  return { submit, isPending };
 };
