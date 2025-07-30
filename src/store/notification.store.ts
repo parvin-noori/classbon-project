@@ -9,16 +9,17 @@ type NotificationState = {
   dismissNotification: (id: string) => void;
 };
 
-export const useNotificationStore = create<NotificationState>()(devtools((set, get) => ({
+export const useNotificationStore = create<NotificationState>()(
+  devtools((set, get) => ({
     notifications: [],
     showNotification: (notification) => {
       const id = generateId();
       set((state) => ({
         notifications: [...state.notifications, { id: id, ...notification }],
       }));
-  
+
       setTimeout(() => {
-          get().dismissNotification(id)
+        get().dismissNotification(id);
       }, notification.duration);
     },
     dismissNotification: (id) => {
@@ -26,4 +27,11 @@ export const useNotificationStore = create<NotificationState>()(devtools((set, g
         notifications: state.notifications.filter((n) => n.id !== id),
       }));
     },
-  })));
+  }))
+);
+
+export const showNotification = (nofifications: Omit<Notification, "id">[]) => {
+  nofifications.forEach((notif) => {
+    useNotificationStore.getState().showNotification(notif);
+  });
+};

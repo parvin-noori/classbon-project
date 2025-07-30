@@ -20,19 +20,22 @@ export const SigninForm = () => {
 
   const router = useRouter();
 
-  const signIn = usesignin({
-    onSuccess: () => {
-      router.push(`/verify?mobile=${getValues("mobile")}`);
-    },
-  });
-
   const showNotification = useNotificationStore(
     (state) => state.showNotification
   );
 
-  useEffect(() => {
-    showNotification({ type: "success", message: "عملیات با موفقیت انجام شد" });
-  }, []);
+  const signIn = usesignin({
+    onSuccess: () => {
+      router.push(`/verify?mobile=${getValues("mobile")}`);
+      showNotification({
+        message:"کد تایید به شماره شمار ارسال شد",
+        type:"info"
+      })
+    },
+  });
+
+ 
+
 
   const onSubmit = (data: Signin) => {
     signIn.submit(data);
